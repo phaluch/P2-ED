@@ -127,8 +127,8 @@ int partition(set S, int l, int r)
         S->arr[l] = S->arr[j];
         S->arr[j] = temp;
     }
-    S->arr[r] = S->arr[l];
     printf("\tout: (%d,%d) vira (%d,%d)\n",r,S->arr[r],l,S->arr[l]);
+    S->arr[r] = S->arr[l];
     S->arr[l] = v;  // Lembrando que v é o valor do item pivô
     return l;  // l é o índice do item que foi colocado no lugar, ou seja, a divisão;
 }
@@ -139,7 +139,12 @@ void quickSort(set S, int l, int r)
     if(r <= l) return;  // Caso de partição vazia ou unitária
     i = partition(S, l, r);
     quickSort(S, l, i-1);
-    quickSort(S, i+1, r);
+    quickSort(S, i, r);
+}
+
+void mergeSort(set S, int l ,int r)
+{
+    
 }
 
 void main(void)
